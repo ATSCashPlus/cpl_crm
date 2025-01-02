@@ -1,0 +1,16 @@
+.c-bg-primary {
+    background-color: rgb(var(--bs-app-theme));
+
+    &.btn:hover {
+        background-color: rgb(var(--bs-app-theme-hover));
+    }
+}
+
+
+.text-gray-600 {
+    color: rgb(var(--bs-gray-600));
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

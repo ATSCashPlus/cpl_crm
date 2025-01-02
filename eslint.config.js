@@ -23,14 +23,12 @@ module.exports = tseslint.config(
                 "args": "none",
                 "ignoreRestSiblings": true
             }],                                // Warn on unused variables
-            "no-undef": "error",                // Disallow the use of undeclared variables
             "prefer-const": "warn",             // Suggest using const for variables that are not reassigned
             "no-var": "error",                  // Disallow var, prefer let/const
             "semi": ["error", "always"],        // Require semicolons
             "quotes": ["error", "single"],      // Enforce single quotes
             "indent": ["error", 4],             // Enforce 2 spaces for indentation
             "comma-dangle": ["error", "never"],  // Disallow trailing commas,
-            "@typescript-eslint/explicit-function-return-type": "warn", // Require explicit return types
             "@typescript-eslint/no-explicit-any": "warn",               // Warn on usage of `any`
             "@typescript-eslint/no-unused-vars": ["warn"],              // Warn on unused variables
             "@typescript-eslint/no-non-null-assertion": "error",        // Disallow non-null assertions

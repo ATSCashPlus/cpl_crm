@@ -1,0 +1,11 @@
+{
+    "FORM": {
+        "ERROR": {
+            "USERNAME_REQUIRED": "Vui lòng nhập tên đăng nhập",
+            "PASSWORD_REQUIRED": "Vui lòng nhập mật khẩu",
+            "ERROR_USERNAME_NOT_EXISTS": "Tài khoản của bạn không tồn tại",
+            "ERROR_PASSWORD_INCORRECT": "Mật khẩu không chính xác",
+            "UNKNOWN": "Có lỗi xảy ra, vui lòng thử lại sau"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.page-login {
+    height: 100dvh;
+    background-image: url("src/assets/images/backgrounds/login-bg-11.jpg");
+    background-size: cover;
+}
+
+.form--login {
+    width: 500px;
+
+    .title {
+        font-size: 30px;
+    }
+
+    .form-control,
+    .btn-login {
+        height: 45px;
+    }
+}

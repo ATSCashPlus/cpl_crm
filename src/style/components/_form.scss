@@ -1,0 +1,19 @@
+.form {
+
+    input {
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .error {
+        height: 20px;
+        color: rgb(var(--bs-red));
+        visibility: hidden;
+
+        &.show {
+            visibility: visible;
+        }
+    }
+}

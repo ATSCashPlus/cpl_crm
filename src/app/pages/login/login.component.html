@@ -1,0 +1,54 @@
+<section class="d-flex justify-content-end page-login">
+
+
+    <form
+        class="p-5 d-flex flex-column align-items-center justify-content-center h-100 bg-white form form--login"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <div class="mb-5 w-100">
+            <h5 class="text-center title">Đăng nhập</h5>
+
+
+            <div class="mb-2">
+                <label for="username" class="form-label text-gray-600">Tài khoản</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    id="username"
+                    formControlName="username"
+                >
+
+                <div
+                    class="error"
+                    [class.show]="submitted() && username.invalid"
+                >{{'FORM.ERROR.USERNAME_REQUIRED' | translate}}</div>
+            </div>
+
+            <div class="mb-2">
+                <label for="password" class="form-label text-gray-600">Mật khẩu</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    id="password"
+                    formControlName="password"
+                >
+
+                <div
+                    class="error"
+                    [class.show]="submitted() && password.invalid"
+                >{{'FORM.ERROR.PASSWORD_REQUIRED' | translate}}</div>
+            </div>
+
+            <button class="mb-1 w-100 btn c-bg-primary text-white fw-semibold btn-login">Đăng nhập</button>
+            <div
+                class="error"
+                [class.show]="errorMessage()"
+            >{{errorMessage() | translate}}</div>
+        </div>
+
+        <div class="pt-4 w-100 text-center border-top text-gray-600">
+            © Color Admin All Right Reserved 2025
+        </div>
+    </form>
+</section>

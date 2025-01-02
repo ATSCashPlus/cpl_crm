@@ -1,0 +1,45 @@
+.header {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 2px -1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -6px;
+    z-index: 10;
+
+    .form--search {
+        height: 32px;
+        background-color: rgb(var(--bs-app-header-input-bg));
+        width: 200px;
+        transition: all .3s ease-in;
+
+        &:focus-within {
+            width: 300px;
+        }
+    }
+
+    .notification-number {
+        top: 0;
+        right: 0;
+        transform: translate(-16%, 10%);
+
+        line-height: 1;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+
+    .btn-avatar,
+    .btn-notification{
+        border-radius: 25px;
+
+        &:hover {
+            background-color: rgb(var(--bs-gray-400));
+        }
+    }
+
+    .btn-notification {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -1,0 +1,53 @@
+<div class="position-fixed d-flex flex-column justify-content-between sidebar">
+    <div class="pt-3 overflow-auto menu-warpper">
+        <ul class="mb-0 list-unstyled menu">
+            @for(menu of menus(); track $index) {
+                <li class="">
+                    @if (menu.children && menu.children.length > 0) {
+                        <div class="px-3 d-flex align-items-center justify-content-between cursor-pointer menu-item">
+                            <div class="d-flex align-items-center gap-2">
+                                <i [class]="'fs-5 bi ' + menu.icon"></i>
+                                <span>{{menu.title}}</span>
+                            </div>
+
+                            <button class="p-0 btn">
+                                <i
+                                    class="bi"
+                                    [class.bi-chevron-right]="!menu.showChildren"
+                                    [class.bi-chevron-up]="menu.showChildren"
+                                ></i>
+                            </button>
+                        </div>
+
+                        <ul class="position-relative list-unstyled menu">
+                            @for(child of menu.children; track $index) {
+                                <li class="position-relative">
+                                    <div class="px-5 d-flex align-items-center justify-content-between cursor-pointer menu-item menu-item--l1">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span>{{child.title}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    } @else {
+                        <a class="px-3 d-flex align-items-center justify-content-between cursor-pointer menu-item">
+                            <div class="d-flex align-items-center gap-2">
+                                <i [class]="'fs-5 bi ' + menu.icon"></i>
+                                <span>{{menu.title}}</span>
+                            </div>
+                        </a>
+                    }
+
+
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    <div class="py-3 text-end">
+        <button class="position-relative text-white border-0 btn btn-collapse-sidebar"><i class="fs-5 bi bi-chevron-double-left"></i></button>
+    </div>
+
+</div>

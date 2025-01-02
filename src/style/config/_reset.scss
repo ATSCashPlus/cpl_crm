@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(var(--bs-gray-500));
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--bs-gray-600));
+}
+
+html, body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    color: rgb(var(--bs-gray-700));
+    line-height: 22px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
