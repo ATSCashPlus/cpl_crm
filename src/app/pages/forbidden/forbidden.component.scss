@@ -1,0 +1,36 @@
+.not-found-page {
+    height: 100dvh;
+
+    .error-status {
+        color: rgb(var(--bs-component-color));
+        font-size: 200px;
+        line-height: 1;
+        text-shadow: 10px 10px 0px rgb(var(--bs-component-color), .2);
+        padding: 1.875rem;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .error-content {
+        height: 50vh;
+        background: #2d353c;
+        background-image: url("src/assets/images/backgrounds/error-page-pattern.png");
+        background-position: center;
+        background-repeat: repeat;
+
+        .error-message {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: .5px;
+            margin-bottom: .46875rem;
+        }
+
+        .error-desc {
+            font-size: .75rem;
+            color: #ffffff80;
+            letter-spacing: .5px;
+        }
+    }
+}

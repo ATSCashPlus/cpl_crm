@@ -8,10 +8,27 @@
 
 .menu-wrapper {
     height: calc(100dvh - 50px);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .menu {
+    &--sub {
+        position: relative;
+    }
+
+    .menu-item {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &--l0 {
+            justify-content: space-between;
+        }
+    }
+
     & .menu {
+        overflow: hidden;
+
         &:before {
             content: '';
             position: absolute;
@@ -25,6 +42,8 @@
         }
 
         .menu-item {
+
+
             &:before {
                 content: '';
                 position: absolute;
@@ -77,4 +96,78 @@
     }
 }
 
+.sidebar {
+
+    &.collapsed {
+        .menu-item {
+
+            &--l0 {
+                justify-content: center;
+
+                .menu-title {
+                    opacity: 0;
+                    display: none;
+                }
+            }
+
+            .btn-collapse-submenu {
+                display: none;
+            }
+        }
+
+        .menu {
+            position: relative;
+
+            &--sub {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: white;
+            }
+        }
+    }
+}
+
+.overlay-submenu-content {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    .menu-title {
+        padding-left: 1.125rem;
+    }
+
+    .menu {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 1.125rem;
+
+            display: block;
+            width: 1px;
+            height: 100%;
+
+            background-color: rgb(var(--bs-gray-800));
+        }
+
+        .menu-item {
+            padding-left: 2.5rem;
+            padding-right: 1.25rem;
+            min-height: 28px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 1.125rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                display: block;
+                width: 10px;
+                height: 1px;
+
+                background-color: rgb(var(--bs-gray-800));
+            }
+        }
+
+    }
+}
 

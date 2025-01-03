@@ -2,6 +2,7 @@
 @use './config/theme';
 @use './config/global';
 
+@use './components/menu';
 @use './components/form';
 
 @use './vendors/bootstrap';

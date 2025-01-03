@@ -1,16 +1,24 @@
-<div class="position-fixed d-flex flex-column justify-content-between sidebar">
-    <div class="pt-3 overflow-auto menu-warpper">
+<div
+    class="position-fixed d-flex flex-column justify-content-between sidebar"
+    [@sidebarToggle]="isCollapsed() ? 'collapsed' : 'expanded'"
+    [class.collapsed]="isCollapsed()"
+    [class.expanded]="!isCollapsed()"
+>
+    <div class="pt-3 menu-wrapper">
         <ul class="mb-0 list-unstyled menu">
             @for(menu of menus(); track $index) {
-                <li class="">
-                    @if (menu.children && menu.children.length > 0) {
-                        <div class="px-3 d-flex align-items-center justify-content-between cursor-pointer menu-item">
+                @if ( menu.children && menu.children.length > 0 ) {
+                    <li class="position-relative">
+                        <div
+                            class="position-relative d-flex align-items-center cursor-pointer menu-item menu-item--l0 has-child"
+                            (click)="onCollapseMenu($event, menu)"
+                        >
                             <div class="d-flex align-items-center gap-2">
                                 <i [class]="'fs-5 bi ' + menu.icon"></i>
-                                <span>{{menu.title}}</span>
+                                <span class="menu-title">{{menu.title}}</span>
                             </div>
 
-                            <button class="p-0 btn">
+                            <button class="p-0 btn btn-collapse-submenu">
                                 <i
                                     class="bi"
                                     [class.bi-chevron-right]="!menu.showChildren"
@@ -19,35 +27,57 @@
                             </button>
                         </div>
 
-                        <ul class="position-relative list-unstyled menu">
-                            @for(child of menu.children; track $index) {
-                                <li class="position-relative">
-                                    <div class="px-5 d-flex align-items-center justify-content-between cursor-pointer menu-item menu-item--l1">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span>{{child.title}}</span>
+                        @if (menu.showChildren) {
+                            <ul @slideInOut class="list-unstyled menu menu--sub">
+                                @for(child of menu.children; track $index) {
+                                    <li class="position-relative">
+                                        <div class="px-5 d-flex align-items-center justify-content-between cursor-pointer menu-item menu-item--l1">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span>{{child.title}}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
-                    } @else {
-                        <a class="px-3 d-flex align-items-center justify-content-between cursor-pointer menu-item">
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                } @else {
+                    <li>
+                        <a class="d-flex align-items-center cursor-pointer menu-item menu-item--l0">
                             <div class="d-flex align-items-center gap-2">
                                 <i [class]="'fs-5 bi ' + menu.icon"></i>
-                                <span>{{menu.title}}</span>
+                                <span class="menu-title">{{menu.title}}</span>
                             </div>
                         </a>
-                    }
-
-
-                </li>
+                    </li>
+                }
             }
 
         </ul>
     </div>
 
     <div class="py-3 text-end">
-        <button class="position-relative text-white border-0 btn btn-collapse-sidebar"><i class="fs-5 bi bi-chevron-double-left"></i></button>
+        <button
+            class="position-relative text-white border-0 btn btn-collapse-sidebar"
+            (click)="onToggleSidebar()"
+        ><i
+            class="fs-5 bi"
+            [class.bi-chevron-double-right]="isCollapsed()"
+            [class.bi-chevron-double-left]="!isCollapsed()"
+        ></i></button>
     </div>
 
 </div>
+
+<ng-template #menuTemplate let-menu="menu">
+    <div class="py-2 rounded border bg-white overlay-submenu-content">
+        <p class="mb-2 fw-semibold menu-title">{{ menu.title }}</p>
+        <ul class="position-relative mb-0 list-unstyled menu">
+            @for(child of menu.children; track $index) {
+                <li class="position-relative menu-item">
+                    <a>{{ child.title }}</a>
+                </li>
+            }
+        </ul>
+    </div>
+</ng-template>

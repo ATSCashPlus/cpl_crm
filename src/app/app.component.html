@@ -1,4 +1,17 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
+@if (isShowHeader()) {
+    <app-header></app-header>
+}
+@if (isShowSidebar()) {
+    <app-sidebar></app-sidebar>
+}
 
-<router-outlet></router-outlet>
+<section
+    class="main-screen"
+    [@mainScreenToggle]="generateMainScreenState()"
+    [class.has-header]="isShowHeader()"
+    [class.has-sidebar]="isShowSidebar()"
+    [class.sidebar-collapsed]="layoutService.sidebarCollapsed()"
+>
+    <router-outlet></router-outlet>
+</section>
+
