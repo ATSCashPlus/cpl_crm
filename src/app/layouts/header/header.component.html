@@ -16,15 +16,37 @@
             <li>
                 <button class="position-relative p-0 btn btn-notification">
                     <i class="bi bi-bell-fill fs-5"></i>
-                    <span class="position-absolute d-inline-flex align-items-center justify-content-center rounded-circle c-bg-primary text-white notification-number">5</span>
+                    <span
+                        class="position-absolute d-inline-flex align-items-center justify-content-center rounded-circle c-bg-primary text-white notification-number">5</span>
                 </button>
             </li>
             <li>
-                <button class="ps-1 py-1 pe-2 btn border-0 btn-avatar">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/220px-Outdoors-man-portrait_%28cropped%29.jpg" alt="Avatar" width="36px" height="36px" class="me-2 rounded-circle">
-                    <span class="fw-semibold">TranVu</span>
+                <button
+                    class="ps-1 py-1 pe-2 d-flex align-items-center gap-2  btn border-0 btn-avatar"
+                    (click)="onOpenMenu($event)"
+                >
+
+                    <span>
+                        <img
+                            [src]="avatar()"
+                            alt="Avatar" width="36px" height="36px" class="me-2 rounded-circle">
+                        <span>{{username()}}</span>
+                    </span>
+                    <i class="mt-1 fs-sm bi bi-caret-down-fill icon"></i>
                 </button>
             </li>
         </ul>
     </nav>
 </header>
+
+<ng-template #userMenuTemplate>
+    <div class="py-2 rounded-bottom border bg-white user-menu">
+        <a
+            class="px-2 py-1 d-flex align-items-center gap-2 menu-item"
+            [routerLink]="['/profile']"
+        ><i class="bi bi-person icon"></i> Xem hồ sơ</a>
+        <div class="px-2 py-1 d-flex align-items-center gap-2 menu-item"><i class="bi bi-lock icon"></i> Đổi mật khẩu</div>
+        <div class="my-1 mx-auto line"></div>
+        <div class="px-2 py-1 d-flex align-items-center gap-2 menu-item "><i class="bi bi-door-open icon"></i>Đăng xuất</div>
+    </div>
+</ng-template>

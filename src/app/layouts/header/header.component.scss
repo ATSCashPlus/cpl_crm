@@ -36,10 +36,36 @@
         &:hover {
             background-color: rgb(var(--bs-gray-400));
         }
+
+        .icon {
+            transform: translateY(-2px);
+            font-size: 10px;
+        }
     }
 
     .btn-notification {
         width: 40px;
         height: 40px;
+    }
+}
+
+.user-menu {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    .line {
+        width: 180px;
+        height: 1px;
+        background-color: rgb(var(--bs-gray-200));
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        &:hover {
+            color: rgb(var(--bs-app-theme));
+        }
     }
 }

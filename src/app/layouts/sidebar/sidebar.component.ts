@@ -10,7 +10,9 @@ import {
 import {animate, state, style, transition, trigger, AnimationEvent, query, stagger} from '@angular/animations';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+// Services
 import {LayoutService} from '@services/layout.service';
+import {StorageService} from '@services/storage.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -51,6 +53,7 @@ import {LayoutService} from '@services/layout.service';
 })
 export class SidebarComponent {
     @ViewChild('menuTemplate') menuTemplate!: TemplateRef<any>;
+
     private readonly overlay = inject(Overlay);
     private readonly viewContainerRef = inject(ViewContainerRef);
     private readonly layoutService = inject(LayoutService);
@@ -121,7 +124,7 @@ export class SidebarComponent {
             this.overlayRef = this.overlay.create({
                 positionStrategy,
                 hasBackdrop: true,
-                backdropClass: 'cdk-overlay-transparent-backdrop', // Optional: Use a transparent backdrop
+                backdropClass: 'cdk-overlay-transparent-backdrop'
             });
 
             // Attach the template portal to the overlay

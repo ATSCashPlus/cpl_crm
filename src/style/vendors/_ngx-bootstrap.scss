@@ -1,0 +1,29 @@
+.toast-container {
+    .ngx-toastr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background-size: 15px;
+        padding: 0px 0px 0px 40px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-radius: 6px;
+        min-height: 36px;
+        min-width: 180px;
+        width: fit-content;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &+.ngx-toastr {
+            margin-top: 3px;
+        }
+
+        &.toast-success {
+            border: 1px solid #51a351;
+            background-color: #4bc04b;
+        }
+
+    }
+}

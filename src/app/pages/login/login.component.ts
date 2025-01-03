@@ -8,6 +8,7 @@ import {StorageService} from '@services/storage.service';
 // Models
 import {ILoginRequest} from '@models/login-request.interface';
 import {EStorageKey} from '@constants/store-key';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -22,6 +23,7 @@ import {EStorageKey} from '@constants/store-key';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
+    private readonly router = inject(Router);
     private readonly formBuilder = inject(FormBuilder);
     private readonly authService = inject(AuthService);
     private readonly storageService = inject(StorageService);
@@ -47,7 +49,6 @@ export class LoginComponent {
             return;
         }
 
-
         const {username, password} = this.loginForm.value;
 
         const loginRequest: ILoginRequest = {
@@ -60,6 +61,9 @@ export class LoginComponent {
                 if (code === '200') {
                     this.storageService.setItem(data.token, EStorageKey.TOKEN);
                     this.storageService.setItem(data.refreshToken, EStorageKey.REFRESH_TOKEN);
+                    this.storageService.setItem(data.avatar, EStorageKey.AVATAR);
+                    this.storageService.setItem(data.username, EStorageKey.USERNAME);
+                    this.router.navigateByUrl('/');
                 } else {
                     this.errorMessage.set(`FORM.ERROR.${error ?? 'UNKNOWN'}`);
                 }

@@ -10,8 +10,17 @@ export const routes: Routes = [
         }
     },
     {
+        path: 'profile',
+        loadComponent: () => import('./pages/profile/profile.component').then((c) => c.ProfileComponent),
+        data: {
+            showHeader: true,
+            showSidebar: true
+        }
+    },
+    {
         path: 'login',
         loadComponent: () => import('./pages/login/login.component').then((c) => c.LoginComponent)
+
     },
     {
         path: 'forbidden',
