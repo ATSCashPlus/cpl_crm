@@ -1,0 +1,30 @@
+<div
+    class="position-relative overflow-hidden d-inline-flex align-items-center justify-content-center rounded cursor-pointer input-image"
+    [ngStyle]="{width: width(), height: height()}"
+    [class.has-image]="innerAvatar()"
+    (click)="fileInput.click()"
+>
+    @if (innerAvatar()) {
+        <img
+            alt="image"
+            class="position-absolute w-100 h-100 image"
+            [src]="innerAvatar()"
+            (error)="onLoadImageError()"
+        >
+    } @else if(!loading()) {
+        <i class="bi bi-card-image icon"></i>
+    }
+
+
+    @if (loading()) {
+        <app-loading type="COMPONENT"></app-loading>
+    }
+
+</div>
+
+<div class="d-none">
+    <input #fileInput type="file"
+           accept=".png, .jpg, .jpe"
+           (change)="onUpdateImage(fileInput.files)"/>
+
+</div>

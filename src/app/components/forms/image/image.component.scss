@@ -1,0 +1,17 @@
+.input-image {
+    border: 1px dashed rgb(var(--bs-gray-500));
+    background-color: rgb(var(--bs-gray-100));
+    transition: all .2s ease-in;
+
+    .icon {
+        font-size: 40px;
+    }
+
+    &:hover {
+        background-color: rgb(var(--bs-gray-200), .5);
+    }
+
+    &.has-image {
+        border: 1px dashed transparent;
+    }
+}
